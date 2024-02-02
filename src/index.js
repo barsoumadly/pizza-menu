@@ -48,10 +48,20 @@ const pizzaData = [
 ];
 
 const App = function () {
-  return <h1>Hello React</h1>;
+  return (
+    <main className="container">
+      <Header />
+    </main>
+  );
 };
 
-const Header = function () {};
+const Header = function () {
+  return (
+    <header className="header">
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+  );
+};
 
 const Menu = function () {};
 
