@@ -51,6 +51,14 @@ const App = function () {
   return <h1>Hello React</h1>;
 };
 
+const Header = function () {};
+
+const Menu = function () {};
+
+const Pizza = function () {};
+
+const Footer = function () {};
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
