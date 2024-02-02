@@ -51,6 +51,7 @@ const App = function () {
   return (
     <main className="container">
       <Header />
+      <Menu />
       <Footer />
     </main>
   );
@@ -64,9 +65,39 @@ const Header = function () {
   );
 };
 
-const Menu = function () {};
+const Menu = function () {
+  return (
+    <section className="menu">
+      <h2>Our Menu</h2>
+      <Pizza
+        name="Pizza Spinaci"
+        photoName="pizzas/spinaci.jpg"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        price="10"
+      />
 
-const Pizza = function () {};
+      <Pizza
+        name="Pizza Funghi"
+        photoName="pizzas/funghi.jpg"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        price="12"
+      />
+    </section>
+  );
+};
+
+const Pizza = function (props) {
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
+    </div>
+  );
+};
 
 const Footer = function () {
   return (
