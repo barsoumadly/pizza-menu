@@ -51,6 +51,7 @@ const App = function () {
   return (
     <main className="container">
       <Header />
+      <Footer />
     </main>
   );
 };
@@ -67,7 +68,13 @@ const Menu = function () {};
 
 const Pizza = function () {};
 
-const Footer = function () {};
+const Footer = function () {
+  return (
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We're currently open!
+    </footer>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
