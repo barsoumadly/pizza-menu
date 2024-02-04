@@ -69,7 +69,12 @@ const Menu = function () {
   return (
     <section className="menu">
       <h2>Our Menu</h2>
-      <Pizza
+      <ul className="pizzas">
+        {pizzaData.map(pizza => (
+          <Pizza pizza={pizza} />
+        ))}
+      </ul>
+      {/* <Pizza
         name="Pizza Spinaci"
         photoName="pizzas/spinaci.jpg"
         ingredients="Tomato, mozarella, spinach, and ricotta cheese"
@@ -81,19 +86,19 @@ const Menu = function () {
         photoName="pizzas/funghi.jpg"
         ingredients="Tomato, mozarella, mushrooms, and onion"
         price="12"
-      />
+      /> */}
     </section>
   );
 };
 
-const Pizza = function (props) {
+const Pizza = function ({ pizza }) {
   return (
     <div className="pizza">
-      <img src={props.photoName} alt={props.name} />
+      <img src={pizza.photoName} alt={pizza.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price}</span>
+        <h3>{pizza.name}</h3>
+        <p>{pizza.ingredients}</p>
+        <span>{pizza.price}</span>
       </div>
     </div>
   );
