@@ -105,10 +105,26 @@ const Pizza = function ({ pizza }) {
 };
 
 const Footer = function () {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()} We're currently open!
+      {isOpen ? <Order openHour={openHour} closeHour={closeHour} /> : <p></p>}
     </footer>
+  );
+};
+
+const Order = function ({ openHour, closeHour }) {
+  return (
+    <div className="order">
+      <p>
+        We're open from {openHour}:00 to {closeHour}:00. Come visit us or order
+        online
+      </p>
+      <button className="btn">Order</button>
+    </div>
   );
 };
 
