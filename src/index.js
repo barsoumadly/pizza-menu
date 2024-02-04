@@ -66,14 +66,26 @@ const Header = function () {
 };
 
 const Menu = function () {
+  const pizzasNum = pizzaData.length;
   return (
     <section className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map(pizza => (
-          <Pizza pizza={pizza} />
-        ))}
-      </ul>
+      {pizzasNum > 0 ? (
+        <>
+          <p>
+            Authentic Italian Cuisine. 6 creative dishes to choose from. All
+            from our stone oven, organic and finger licking delicious
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map(pizza => (
+              <Pizza pizza={pizza} />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We're still working on the menu. Come back latter </p>
+      )}
+
       {/* <Pizza
         name="Pizza Spinaci"
         photoName="pizzas/spinaci.jpg"
@@ -93,12 +105,14 @@ const Menu = function () {
 
 const Pizza = function ({ pizza }) {
   return (
-    <div className="pizza">
+    <div className={`pizza ${pizza.soldOut ? 'sold-out' : ''}`}>
       <img src={pizza.photoName} alt={pizza.name} />
       <div>
         <h3>{pizza.name}</h3>
-        <p>{pizza.ingredients}</p>
-        <span>{pizza.price}</span>
+        <p>Ingredients: {pizza.ingredients}</p>
+        <span style={{ textTransform: 'uppercase' }}>
+          {pizza.soldOut ? 'sold out' : `Price: ${pizza.price}`}
+        </span>
       </div>
     </div>
   );
